@@ -1,4 +1,5 @@
-﻿using System;
+﻿//This is by "rakker" from "The Life and Times of a Dev".URL: http://geekswithblogs.net/rakker/archive/2006/04/21/76044.aspx
+using System;
 using System.Collections.Specialized;
 using System.IO;
 using System.Net;
