@@ -83,7 +83,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Event\MessageEventArgs.cs" />
-    <Compile Include="Omegle\Omegle.cs" />
+    <Compile Include="Omegle\OmegleConnection.cs" />
     <Compile Include="ChatRoom.cs" />
     <Compile Include="Utility\PostSubmitter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">

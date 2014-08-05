@@ -1,7 +1,7 @@
 ﻿<Window x:Class="OmegleChat.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Omegle Chat Room" Height="600" Width="800" MinWidth="800" MinHeight="600" Icon="C:\Users\Devin\Source\Repos\OmegleChatRoom\OmegleChat\Assets\omegle_icon_small.png">
+        Title="Omegle Chat Room" Height="600" Width="800" MinWidth="800" MinHeight="600" Icon="Assets/omegle_icon_small.png">
     <Grid Background="#FFEFEFF2">
         <TextBox x:Name="SendBox" Margin="10,0,10,10" TextWrapping="Wrap" Height="20" VerticalAlignment="Bottom"/>
         <Button x:Name="AddUserBtn" Content="Add user" HorizontalAlignment="Left" Margin="10,0,0,155" Width="75" Height="20" VerticalAlignment="Bottom"/>

@@ -14,7 +14,7 @@ namespace OmegleChatRoom.User
         public bool IsTyping { get; set; }
         public PriviledgeLevel PriviledgeLevel { get; set; }
 
-        public Omegle Omegle { get; private set; }
+        public OmegleConnection Omegle { get; private set; }
 
         private static int CurrentUserNumber = 1;
 
@@ -73,7 +73,7 @@ namespace OmegleChatRoom.User
             Name = "User" + (CurrentUserNumber++).ToString();
             PriviledgeLevel = PriviledgeLevel.Standard;
 
-            Omegle = new Omegle();
+            Omegle = new OmegleConnection();
 
             Omegle.CaptchaRefused += Omegle_CaptchaRefused;
             Omegle.CaptchaRequired += Omegle_CaptchaRequired;
@@ -170,7 +170,7 @@ namespace OmegleChatRoom.User
                 this.Connected(this, e);
         }
 
-        void Omegle_CaptchaRequired(object sender, CaptchaRequiredArgs e)
+        void Omegle_CaptchaRequired(object sender, CaptchaRequiredEventArgs e)
         {
             if (this.CaptchaRequired != null)
                 this.CaptchaRequired(this, e);

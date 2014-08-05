@@ -222,7 +222,7 @@ namespace OmegleChatRoom
                 StatusChanged(sender, new StatusChangedEventArgs());
         }
 
-        private void OnCaptchaRequired(object sender, CaptchaRequiredArgs e)
+        private void OnCaptchaRequired(object sender, CaptchaRequiredEventArgs e)
         {
             DisplayMessage(String.Format("Captcha! {0}", e.Url));
 
