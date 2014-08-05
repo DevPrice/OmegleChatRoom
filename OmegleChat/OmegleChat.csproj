@@ -61,6 +61,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Command\ICommand.cs" />
     <Compile Include="User\RemoteUser.cs" />
     <Compile Include="Event\StatusChangedEventArgs.cs" />
     <Compile Include="Event\UnhandledResponseEventArgs.cs" />
