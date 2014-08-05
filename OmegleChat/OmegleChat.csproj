@@ -34,7 +34,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>omegle_icon_small.ico</ApplicationIcon>
+    <ApplicationIcon>Assets\omegle_icon_small.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">
@@ -61,10 +61,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="RemoteUser.cs" />
-    <Compile Include="StatusChangedEventArgs.cs" />
-    <Compile Include="UnhandledResponseEventArgs.cs" />
-    <Compile Include="WebExceptionEventArgs.cs" />
+    <Compile Include="User\RemoteUser.cs" />
+    <Compile Include="Event\StatusChangedEventArgs.cs" />
+    <Compile Include="Event\UnhandledResponseEventArgs.cs" />
+    <Compile Include="Event\WebExceptionEventArgs.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -73,19 +73,19 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="CaptchaRequiredArgs.cs" />
-    <Compile Include="IUser.cs" />
-    <Compile Include="LocalUser.cs" />
+    <Compile Include="Event\CaptchaRequiredEventArgs.cs" />
+    <Compile Include="User\IUser.cs" />
+    <Compile Include="User\LocalUser.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MessageEventArgs.cs" />
-    <Compile Include="Omegle.cs" />
+    <Compile Include="Event\MessageEventArgs.cs" />
+    <Compile Include="Omegle\Omegle.cs" />
     <Compile Include="ChatRoom.cs" />
-    <Compile Include="PostSubmitter.cs" />
+    <Compile Include="Utility\PostSubmitter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -113,8 +113,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="omegle_icon_small.ico" />
+    <Resource Include="Assets\omegle_icon_small.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\omegle_icon_large.jpg" />
+    <None Include="Assets\omegle_icon_small.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace OmegleChatRoom
+namespace OmegleChatRoom.Event
 {
     public class UnhandledResponseEventArgs : EventArgs
     {

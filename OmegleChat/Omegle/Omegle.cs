@@ -32,6 +32,8 @@ using System.Threading;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Threading.Tasks;
+using OmegleChatRoom.Event;
+using OmegleChatRoom.Utility;
 
 namespace OmegleChatRoom
 {

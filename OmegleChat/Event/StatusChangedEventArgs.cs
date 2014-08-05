@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OmegleChatRoom
+namespace OmegleChatRoom.Event
 {
     public class StatusChangedEventArgs : EventArgs
     {

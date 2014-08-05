@@ -1,10 +1,11 @@
-﻿using System;
+﻿using OmegleChatRoom.Event;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OmegleChatRoom
+namespace OmegleChatRoom.User
 {
     public class LocalUser : IUser
     {
