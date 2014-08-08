@@ -2,9 +2,6 @@
 using OmegleChatRoom.User;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OmegleChatRoom
 {
@@ -76,7 +73,7 @@ namespace OmegleChatRoom
 
         private void RemoveUser(RemoteUser user)
         {
-            if (user.Omegle.IsConnected)
+            if (user.Session.IsConnected)
             {
                 user.Disconnect();
             }
@@ -240,7 +237,7 @@ namespace OmegleChatRoom
 
             RemoteUser user = sender as RemoteUser;
 
-            if (!user.Omegle.IsConnected || e.Response.Contains("error"))
+            if (!user.Session.IsConnected || e.Response.Contains("error"))
             {
                 RemoveUser(user);
             }
@@ -463,6 +460,7 @@ namespace OmegleChatRoom
                 {
                     if (kickee.PriviledgeLevel != PriviledgeLevel.Mod)
                     {
+                        kickee.IsMuted = true;
                         RemoveUser(kickee);
 
                         Broadcast(String.Format("{0} was kicked!", kickee.Name), null);

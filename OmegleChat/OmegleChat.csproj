@@ -61,6 +61,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Command\CommandBase.cs" />
+    <Compile Include="Command\CommandInvoker.cs" />
+    <Compile Include="Command\CommandParser.cs" />
     <Compile Include="Command\ICommand.cs" />
     <Compile Include="User\RemoteUser.cs" />
     <Compile Include="Event\StatusChangedEventArgs.cs" />
@@ -84,7 +87,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Event\MessageEventArgs.cs" />
-    <Compile Include="Omegle\OmegleConnection.cs" />
+    <Compile Include="Omegle\OmegleSesssion.cs" />
     <Compile Include="ChatRoom.cs" />
     <Compile Include="Utility\PostSubmitter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -120,9 +123,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\omegle_icon_large.jpg" />
-    <None Include="Assets\omegle_icon_small.png">
+    <Resource Include="Assets\omegle_icon_small.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    </Resource>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

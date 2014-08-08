@@ -1,20 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using OmegleChatRoom;
+using OmegleChatRoom.Event;
+using OmegleChatRoom.User;
+using System;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using OmegleChatRoom;
-using OmegleChatRoom.Event;
-using OmegleChatRoom.User;
 
 namespace OmegleChat
 {
@@ -146,6 +138,11 @@ namespace OmegleChat
         private void ChatRoom_StatusChanged(object sender, StatusChangedEventArgs e)
         {
             RefreshUserBox();
+        }
+
+        private void UserBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

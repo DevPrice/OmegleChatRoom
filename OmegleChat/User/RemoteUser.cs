@@ -1,8 +1,5 @@
 ﻿using OmegleChatRoom.Event;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace OmegleChatRoom.User
@@ -14,7 +11,7 @@ namespace OmegleChatRoom.User
         public bool IsTyping { get; set; }
         public PriviledgeLevel PriviledgeLevel { get; set; }
 
-        public OmegleConnection Omegle { get; private set; }
+        public OmegleSession Session { get; private set; }
 
         private static int CurrentUserNumber = 1;
 
@@ -73,18 +70,18 @@ namespace OmegleChatRoom.User
             Name = "User" + (CurrentUserNumber++).ToString();
             PriviledgeLevel = PriviledgeLevel.Standard;
 
-            Omegle = new OmegleConnection();
+            Session = new OmegleSession();
 
-            Omegle.CaptchaRefused += Omegle_CaptchaRefused;
-            Omegle.CaptchaRequired += Omegle_CaptchaRequired;
-            Omegle.Connected += Omegle_Connected;
-            Omegle.Count += Omegle_Count;
-            Omegle.MessageReceived += Omegle_MessageReceived;
-            Omegle.StrangerDisconnected += Omegle_StrangerDisconnected;
-            Omegle.StrangerStoppedTyping += Omegle_StrangerStoppedTyping;
-            Omegle.StrangerTyping += Omegle_StrangerTyping;
-            Omegle.WaitingForPartner += Omegle_WaitingForPartner;
-            Omegle.UnhandledResponse += Omegle_UnhandledResponse;
+            Session.CaptchaRefused += Omegle_CaptchaRefused;
+            Session.CaptchaRequired += Omegle_CaptchaRequired;
+            Session.Connected += Omegle_Connected;
+            Session.Count += Omegle_Count;
+            Session.MessageReceived += Omegle_MessageReceived;
+            Session.StrangerDisconnected += Omegle_StrangerDisconnected;
+            Session.StrangerStoppedTyping += Omegle_StrangerStoppedTyping;
+            Session.StrangerTyping += Omegle_StrangerTyping;
+            Session.WaitingForPartner += Omegle_WaitingForPartner;
+            Session.UnhandledResponse += Omegle_UnhandledResponse;
         }
 
         /// <summary>
@@ -92,7 +89,7 @@ namespace OmegleChatRoom.User
         /// </summary>
         public void Connect()
         {
-            new Task(delegate { Omegle.Connect(); }).Start();
+            new Task(delegate { Session.Connect(); }).Start();
         }
 
         /// <summary>
@@ -100,16 +97,16 @@ namespace OmegleChatRoom.User
         /// </summary>
         public void Disconnect()
         {
-            new Task(delegate { Omegle.Disconnect(); }).Start();
+            new Task(delegate { Session.Disconnect(); }).Start();
         }
 
         /// <summary>
-        /// Sends in another thread, unlike Omegle.SendMessage()
+        /// Sends in another thread, unlike OmegleSession.SendMessage()
         /// </summary>
         /// <param name="message"></param>
         public void SendMessage(string message)
         {
-            new Task(delegate { Omegle.SendMessage(message); }).Start();
+            new Task(delegate { Session.SendMessage(message); }).Start();
         }
 
         void Omegle_UnhandledResponse(object sender, UnhandledResponseEventArgs e)
@@ -152,8 +149,6 @@ namespace OmegleChatRoom.User
         {
             IsTyping = false;
 
-
-
             if (this.MessageReceived != null)
                 this.MessageReceived(this, e);
         }
@@ -180,22 +175,6 @@ namespace OmegleChatRoom.User
         {
             if (this.CaptchaRefused != null)
                 this.CaptchaRefused(this, e);
-        }
-
-        public static string GetRandomName()
-        {
-            Random r = new Random();
-
-            int length = r.Next(4, 10);
-
-            char[] name = new char[length];
-
-            for (int i = 0; i < length; i++)
-            {
-                name[i] = (char)('a' + r.Next(0, 25));
-            }
-
-            return new String(name);
         }
 
         public override string ToString()

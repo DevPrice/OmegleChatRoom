@@ -6,7 +6,7 @@
         <TextBox x:Name="SendBox" Margin="10,0,10,10" TextWrapping="Wrap" Height="20" VerticalAlignment="Bottom"/>
         <Button x:Name="AddUserBtn" Content="Add user" HorizontalAlignment="Left" Margin="10,0,0,155" Width="75" Height="20" VerticalAlignment="Bottom"/>
         <CheckBox x:Name="AutoReconnectCheck" Content="Auto-reconnect" HorizontalAlignment="Left" Margin="10,0,0,135" VerticalAlignment="Bottom"/>
-        <ListBox x:Name="UserBox" Margin="0,0,10,35" HorizontalAlignment="Right" Width="150" Height="140" VerticalAlignment="Bottom" SelectionMode="Extended">
+        <ListBox x:Name="UserBox" Margin="0,0,10,35" HorizontalAlignment="Right" Width="150" Height="140" VerticalAlignment="Bottom" SelectionMode="Extended" SelectionChanged="UserBox_SelectionChanged">
             <ListBox.ContextMenu>
                 <ContextMenu>
                     <MenuItem x:Name="KickContext" Header="Kick"/>
