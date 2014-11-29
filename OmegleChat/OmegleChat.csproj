@@ -119,9 +119,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\omegle_icon_large.jpg" />
-    <None Include="Assets\omegle_icon_small.png">
+    <Resource Include="Assets\omegle_icon_small.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    </Resource>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
