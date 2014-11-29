@@ -46,7 +46,7 @@ namespace OmegleChatRoom
     {
         public string[] serverList = new string[]
         {
-            "bajor", "cardassia", "chatserv", "promenade"
+            "front1", "front2", "front3", "front4"
         };
 
         protected Timer UpdateTimer;
@@ -438,6 +438,9 @@ namespace OmegleChatRoom
                         case "recaptchaRejected":
                             if (this.CaptchaRefused != null)
                                 this.CaptchaRefused(this, new EventArgs());
+                            break;
+                        case "identDigests":
+                        case "statusInfo":
                             break;
                         case "error": // should probably handle this one
                         case "suggestSpyee":
